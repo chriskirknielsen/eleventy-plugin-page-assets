@@ -73,7 +73,7 @@ async function transformParser(content, outputPath) {
                 img.setAttribute("src", destPathRelativeToPage);
               }
 
-              if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Writting ./${destPath} from ./${assetPath}`); }
+              if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Writing ./${destPath} from ./${assetPath}`); }
               fs.mkdirSync(destDir, { recursive: true });
               await fs.promises.copyFile(assetPath, destPath);
 
@@ -84,7 +84,7 @@ async function transformParser(content, outputPath) {
 
         }));
         
-        if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Processed ${elms.length} images in "${outputPath}" from template "${inputPath}"`); }
+        if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Processed ${elms.length} assets in "${outputPath}" from template "${inputPath}"`); }
         content = dom.serialize();
     }
   }
@@ -122,7 +122,7 @@ async function transformDirectoryWalker(content, outputPath) {
           const destDir = path.join(outputDir, relativeSubDir);
           const dest = path.join(destDir, basename);
 
-          if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Writting ./${dest} from ./${from}`); }
+          if (!pluginOptions.silent) { console.log(LOG_PREFIX, `Writing ./${dest} from ./${from}`); }
           fs.mkdirSync(destDir, { recursive: true });
           await fs.promises.copyFile(from, dest);
         }
